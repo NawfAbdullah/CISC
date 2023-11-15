@@ -1,0 +1,82 @@
+.event-card{
+    width: 360px;
+    height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: #3C3D4F;
+    position: relative;
+    margin: 10px;
+}
+
+
+.event-card img{
+    width: 100%;
+    border-radius: 10px;
+    height: 50%;
+    object-fit: cover;
+}
+
+.event-card h3{
+    font-size: 1.5rem;
+    text-align: left;
+    font-family: 'Maitree', serif;
+}
+
+
+.event-card p{
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+}
+
+.event-card .date{
+    color:rgb(152, 152, 152);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.event-card button{
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: 200ms;
+    background-color: #0BD6A7;
+    outline: none;
+    border: none;
+    float: left;
+    cursor: pointer;
+}
+
+.event-card span{
+    width: 5px;
+    height: 5px;
+    margin-right: 2px;
+    background-color: #3C3D4F;
+    border-radius: 100%;
+    display: block;
+}
+
+.event-card button:hover{
+    opacity: 0.5;
+}
+
+span{
+    width:10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+@media only screen and (max-width:431px){
+
+    .event-card{
+        width: 300px;
+        height: 540px;
+    }
+}
+
+@media only screen and (max-width:350px){
+    .event-card{
+        width: 280px;
+        height: 520px;
+    }
+}

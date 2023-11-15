@@ -1,0 +1,32 @@
+.button{
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: 200ms;
+    background-color: #0BD6A7;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.bounce{
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    from{
+        box-shadow: 0px 0px 0px 0px rgba(42, 197, 161,0.4);
+    }
+    to{
+        box-shadow: 0px 0px 10px 25px rgba(42, 197, 161,0.2);
+    }
+    
+}
+
+
+.floating{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

@@ -1,0 +1,59 @@
+.register{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../assets/images/background.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+
+.card.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.plan{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:1000px){
+    .plan{
+        position: relative;
+        right: 5%;
+        transform: scale(0.8);
+    }
+    
+}
+
+@media only screen and (max-width:893px) {
+    .plan{
+        right: 15%;
+    }
+
+}
+
+
+@media only screen and (max-width:742px) {
+    .plan{
+        right: 0;
+    }
+}
+
+@media only screen and (max-width:641px) {
+    .plan{
+        height: 110%;
+        transform: scale(1);
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

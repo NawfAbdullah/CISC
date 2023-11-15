@@ -1,0 +1,43 @@
+.card{
+    width: 70%;
+    height: 70%;
+    border-radius: 20px;
+    padding: 40px;
+    background-color: rgba(51, 51, 121, 0.5);
+    overflow: hidden;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    position: relative;
+}
+.community{
+    width: 20vw;
+}
+
+
+
+.reg{
+    width: 100px;
+    border-radius: 100%;
+    border: 5px solid #fff;
+}
+
+
+
+.check-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Arvo', serif;
+}
+
+@media only screen and (max-width:758px){
+    .card{
+        justify-content: center;
+    }
+
+    .card.jad{
+        justify-content: flex-start;
+    }
+}

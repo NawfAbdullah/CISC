@@ -1,0 +1,22 @@
+.register-input{
+    background-color: transparent;
+    border-bottom: 2px solid rgb(172, 172, 172);
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.register-input>input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    flex: 1;
+    font-family: 'Maitree', serif;
+}
+
+.register-input:focus-within{
+    border-color: #0BD6A7;
+}

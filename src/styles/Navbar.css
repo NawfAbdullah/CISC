@@ -1,0 +1,55 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+}
+
+.navbar .logo img{
+    width: 70px;
+    border-radius: 100%;
+}
+
+.menus{
+    display: flex;
+    min-width: 40%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.menus>p{
+    cursor: pointer;
+}
+
+.burger{
+    display: none;
+}
+
+@media only screen and (max-width:720px){
+    .navbar{
+        width: 90vw;
+    }
+    .burger{
+        display: block;
+        color:#28282B;
+        z-index: 101;
+    }
+
+    .menus{
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.6);
+        backdrop-filter: blur(5px);
+    }
+
+    .menus *{
+        color: #28282B;
+    }
+}

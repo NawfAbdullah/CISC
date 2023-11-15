@@ -1,0 +1,55 @@
+Participent Schema{
+    name,
+    department,
+    college,
+    branch,
+    age,
+    payment_status,
+    competition_ids:[],
+    email,
+    rrn:optional_if_crescent,
+    photo:optional,
+}
+
+
+Event Schema{
+    id:
+    name:,
+    img:,
+    date:,
+    isRegistrationOpen,
+    participants,
+    description,
+    contents:[{
+        title:
+        timings:
+        img:
+        description
+    }]
+    isPaymentRequired,
+    fees,
+    discount:fateen said discount if a person registers in bulk,
+    participants:[],
+    winners:[]
+}
+
+
+
+CoreMember Scheme{
+    name:,
+    role,
+    pic:,
+    dob,
+    dept:,
+    branch:,
+    rrn:
+    description:
+    email:
+    password:,
+    functionalities-Add event,edit event,close event,
+    achivement:[{
+        image:,
+        description:,
+        title,
+    }],
+}

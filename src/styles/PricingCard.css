@@ -1,0 +1,103 @@
+.pricing-card{
+    background-color: #fff;
+    border-radius: 20px;
+    border-bottom: 5px solid gray;
+    color: #030216;
+    padding: 20px;
+    margin: 5px;
+
+    width: 200px;
+}
+
+.pricing-card>hr{
+    height: 3px; 
+    color: gray;
+    background-color: gray;
+    border: none;
+}
+
+.basic{
+    border-color: 	#ffd58b;
+}
+
+
+.pricing-card>h2,.pricing-card>p,.pricing-card>h3{
+    color: #050427;
+    font-family: 'Arvo', serif;
+}
+
+.pricing-card>p{
+    font-size: 1.5rem;
+}
+
+.pricing-card>ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.pricing-card>ul>li{
+    font-family: 'Inter', sans-serif;
+    color: grey;
+    list-style: none;
+}
+
+.premium{
+    border-color:  #0BD6A7;
+}
+
+
+.arena{
+    border-color: #ec644b;
+}
+
+.basic>button,.basic>hr{
+    background-color: 	#ffd58b;
+}
+.premium>button,.premium>hr{
+    background-color: #0BD6A7;
+}
+
+.basic>h2{
+    color: 	#ffd58b;
+}
+
+.premium>h2{
+    color: #0BD6A7;
+}
+
+
+.arena>h2{
+    color: #ec644b;
+}
+
+.arena>button,.arena>hr{
+    background-color: #ec644b;
+}
+
+
+
+
+@media only screen and (max-width:733px){
+    .pricing-card{
+        transform: scale(0.8);
+    }
+}
+
+@media only screen and (max-width:640px){
+    .pricing-card{
+        transform: scale(1);
+        min-width: 150px;
+    }
+
+    .pricing-card>h2{
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .pricing-card{
+        transform: translate(0.5);
+    }
+}

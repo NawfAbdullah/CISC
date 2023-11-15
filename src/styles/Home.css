@@ -1,0 +1,222 @@
+
+
+
+h1.title{
+    z-index: 2;
+    text-align: center;
+    font-family: 'Arvo', serif;
+    font-size: 6rem;
+    position: absolute;
+    width: 100%;
+}
+
+h2{
+    font-size: 2.5rem;
+    font-family: 'Maitree', serif;
+}
+
+
+.web-dev{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    z-index: 3;
+}
+
+.spaces{
+    /* height: 150vh; */
+    position: relative;
+    margin-bottom: 15rem;
+}
+
+.hero{
+    background-image: linear-gradient(
+  160deg,
+  hsl(240deg 11% 4%) 0%,
+  hsl(240deg 1% 10%) 29%,
+  hsl(240deg 1% 14%) 53%,
+  hsl(240deg 0% 17%) 67%,
+  hsl(240deg 0% 20%) 76%,
+  hsl(240deg 0% 22%) 82%,
+  hsl(240deg 0% 24%) 87%,
+  hsl(240deg 0% 26%) 91%,
+  hsl(240deg 0% 28%) 96%,
+  hsl(0deg 0% 30%) 100%
+);
+width: 100vw;
+}
+
+.animate-lap{
+    overflow: hidden;
+    position: sticky;
+    width: 820px;
+    height: 462px;
+    top: 0%;
+    scale: 1.2;
+    margin-bottom: 8rem;
+}
+
+.about-us{
+    min-height: 50vh;
+}
+
+.about-us .content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.about-us .content .lap-space{ 
+    flex: 1;
+}
+
+.about-us .content .detail{
+    width: 50%;
+    font-family: 'Neuton', serif;
+    font-size: 1.5rem;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contact-us{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.contact-us img{
+    width: 40%;
+}
+
+.contact-us form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.contact-us form input,textarea{
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+    border: 5px solid rgb(172, 172 , 172);
+    border-radius: 10px;
+    color: #28282B;
+}
+
+
+.contact-us form input:focus,textarea:focus{
+    border-color: #6C63FF;
+}
+
+.contact-us form button{
+    padding: 20px;
+    background-color: #6C63FF;
+    border-radius: 10px;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.contact-us form button:hover{
+    opacity: 0.5;
+}
+
+
+footer{
+    background-color: #000;
+}
+
+footer .icon{
+    margin: 20px;
+}
+
+#about-us > div > div.detail > p{
+    position: relative;
+    right: 10%;
+}
+
+@media only screen and (max-width:850px){
+    .contact-us>img{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:560px){
+    h1.title{
+        font-size: 4rem;
+    }
+
+    .cards{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width:560px){
+
+#about-us > div > div.detail > p{
+    width: 94vw;
+    right: 39%;
+    top: -60%;
+}
+    .spaces{
+        margin-bottom: 2rem;
+    }
+    
+    .about-us{
+        min-height: 90vh;
+    }
+
+    .about-us .content{
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .lap-space{
+        min-height: 40vh;
+        width: 100%;
+    }
+    .about-us .detail{
+        width: 100%;
+    }
+
+    .about-us .detail>p{
+        width: 100%;
+    }
+    h1.title{
+        font-size: 3rem;
+    }
+
+    .cards{
+        flex-direction: column;
+    }
+
+    .animate-lap{
+        scale: 0.7;
+    }
+}
+
+@media only screen and (max-width:400px){
+    h2{
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .about-us .detail>h2{
+        width: 1rem;
+    }
+
+    .about-us{
+        min-height: 120vh;
+    }
+}

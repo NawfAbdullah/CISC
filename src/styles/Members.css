@@ -1,0 +1,32 @@
+
+.members{
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.members h2{
+    text-align: left;
+    font-size: 2.5rem;
+    margin-left: 20px;
+}
+
+
+.members .pics{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.members .pics>div{
+    width: 215px;
+    position: relative;
+}
+
+.members .pics img{
+    border-radius: 100%;
+    width: 90%;
+}

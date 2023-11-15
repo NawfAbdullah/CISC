@@ -1,0 +1,11 @@
+.avatar-picker>img{
+    width: 100px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 5px solid #fff;
+}
+
+.avatar-picker>img+input{
+    display: none;
+}
