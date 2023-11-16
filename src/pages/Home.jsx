@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState, useRef } from 'react'
 import { gsap } from 'gsap'
 import ScrollTrigger from "gsap/src/ScrollTrigger";
 import Lap from '../assets/images/lapt.png'
@@ -8,10 +8,11 @@ import EventCard from '../components/Cards/EventCard';
 import Contactus from '../assets/images/contact-us.svg'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import EmailIcon from '@mui/icons-material/Email';
 import WebIcon from '@mui/icons-material/Web';
 import {motion} from 'framer-motion';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 
 const Home = ()=>{
@@ -19,9 +20,20 @@ const Home = ()=>{
 
     const today = new Date()
     const [events,setEvents] = useState([])
-    const handleSubmit = (e)=>{
-      e.preventDefault()
-    }
+
+
+    const form = useRef();
+
+      const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_tas5c3i', 'template_8p9aypl', form.current, 'qeT9Zf5W2-mTuA8rw')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
 
     useLayoutEffect(()=>{
       gsap.from('.cards',{
@@ -127,11 +139,11 @@ const Home = ()=>{
           </div>
         </section>
         <section className="contact-us" id='contact-us'>
-          <form onSubmit={handleSubmit}>
+          <form ref={form} onSubmit={sendEmail}>
             <h2>Contact us</h2>
             <input type="text" name="name" id="name" className="name" placeholder='name'/>
             <input type="email" name="email" id="email" className="email" placeholder='email'/>
-            <textarea name="" id="" cols="30" rows="10" placeholder='message'></textarea>
+            <textarea name="message" id="" cols="30" rows="10" placeholder='message'></textarea>
             <button type='submit'>Submit</button>
           </form>
           <motion.img src={Contactus} initial={{
@@ -149,7 +161,7 @@ const Home = ()=>{
           <div className="icons">
             <a href="https://www.instagram.com/cisc_buildclub/" className="icon" target='_blank'><InstagramIcon /> </a>
             <a href="#" className="icon"><FacebookIcon /></a>
-            <a href="#" className="icon"><TwitterIcon /></a>
+            <a href="mailto:crescent.innovation.and.build.club@gmail.com" className="icon"><EmailIcon /></a>
             <a href="/" className="icon"><WebIcon /></a>
           </div>
           <p>Made with ❤️ by <a href='https://in.linkedin.com/in/nawf-abdullah-69474a225' target='_blank'>Nawf Abdullah</a> and <a href='https://www.linkedin.com/in/ali-shazin-6157b5251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' target='_blank'>Ali izzath shazin</a></p>

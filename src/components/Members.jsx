@@ -14,6 +14,7 @@ import Nawf from '../assets/images/nawf.png'
 import Pious from '../assets/images/pious.jpg'
 import Shan from '../assets/images/shanmu.jpg'
 import Varshini from '../assets/images/varshini.jpg'
+import Mathan from '../assets/images/mathan.jpg'
 
 
 const Members = ()=>{
@@ -92,6 +93,15 @@ const Members = ()=>{
     {
         name:'Harini Sri',
         img:Harini,
+        role:'Designer',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eos ratione odio, quam sint suscipit illum debitis optio aliquam ea asperiores modi dolorem nisi exercitationem delectus nemo similique! Illum, nihil?',
+        size:30,
+        x:180,
+        y:210
+    },
+    {
+        name:'Mathan',
+        img:Mathan,
         role:'Designer',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eos ratione odio, quam sint suscipit illum debitis optio aliquam ea asperiores modi dolorem nisi exercitationem delectus nemo similique! Illum, nihil?',
         size:30,
