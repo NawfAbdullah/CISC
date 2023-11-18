@@ -11,11 +11,12 @@ const Event = ()=>{
     const [event,setEvent] = useState({competitions:[],workshops:[]})
     const {eventId} = useParams()
    
-
+    const [date,setDate] = useState(new Date())
     useEffect(()=>{
         const getData =async ()=>{
             const response = await axios.get(`${Url}event/one?id=${eventId}`)
             setEvent(response.data.data);
+            setDate(new Date(response.data.data.date))
             console.log(response.data.data);
         }
         getData()
@@ -26,6 +27,7 @@ const Event = ()=>{
             behavior: 'smooth' ,
           });
     },[])
+    const months = ['January','Feburary','March','April','May','June', 'July','August','September','October','November','December']
     return <div className="event-page">
         <div className="banner" style={{
             backgroundImage:`url(${event?.img})`
@@ -37,7 +39,7 @@ const Event = ()=>{
             <div className='line'></div>
             <div className="summary">
                 <p><span><LocationCity /></span> <span>BSA Crescent Institute of Science and Tech,Chennai</span></p>
-                <p><span><AccessTimeFilledRoundedIcon /></span><span>Upcoming</span></p>
+                <p><span><AccessTimeFilledRoundedIcon /></span><span>{date.getDay()},{months[date.getMonth()]} {date.getFullYear()}</span></p>
                 {event.isRegistrationOpen&&<div className="floating">
                     <RegisterButton eventId={eventId}></RegisterButton>
                 </div>}

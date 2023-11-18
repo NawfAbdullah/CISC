@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# Crescent Innovation and starup Club
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+coming soon!!!!!!!!!!!
 ## Available Scripts
 
 In the project directory, you can run:
