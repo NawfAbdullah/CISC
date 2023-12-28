@@ -15,9 +15,14 @@ import Pious from '../assets/images/pious.jpg'
 import Shan from '../assets/images/shanmu.jpg'
 import Varshini from '../assets/images/varshini.jpg'
 import Mathan from '../assets/images/mathan.jpg'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import EmailIcon from '@mui/icons-material/Email';
+import WebIcon from '@mui/icons-material/Web';
 
 
 const Members = ()=>{
+    
     const [members,setMembers] = useState([{
         name:'Fateen khan',
         img:Fateen,

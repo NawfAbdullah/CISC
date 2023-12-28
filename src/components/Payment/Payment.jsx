@@ -27,19 +27,7 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
 
 
   const genPDF = ()=>{
-    const doc = new jsPDF({
-			format: 'a4',
-			unit: 'px',
-		});
 
-		// Adding the fonts.
-		doc.setFont('Inter-Regular', 'normal');
-
-		doc.html(reportTemplateRef.current, {
-			async callback(doc) {
-				await doc.save('document');
-			},
-		});
   }
   const handlePayment = useCallback(async () => {
 
@@ -194,37 +182,6 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
           {ticketHolders.map((ticketHolder,index)=>{
           return <Tickets key={index} name={ticketHolder.name} pic={ticketHolder.photo} event_name={event?.title} orderId={orderId} price={ticketHolder.price}/>
         })}
-
-        <div className="invoice" ref={reportTemplateRef} style={{color:'#000'}}>
-          <h1 style={{textAlign:'center',color:'#000'}}>Ticket</h1>
-          <table>
-            <tbody>
-              {ticketHolders.map((holder)=>{
-                return <tr style={{color:'#000'}}>
-
-                  <td style={{color:'#000'}}>{holder.name}</td>
-                  <td style={{color:'#000'}}>{holder.email}</td>
-                  <td style={{color:'#000'}}>{holder.price}</td>
-                </tr>
-              })}
-              <tr>
-                <td></td>
-                <td></td>
-                <td style={{color:'#000'}}>{total}</td>
-              </tr>
-            </tbody>
-          </table>
-          <p style={{color:'#000'}}>Payment Verfied</p>
-          <img src={
-                        <QRCode
-                        size={256}
-                        style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                        value={orderId}
-                        viewBox={`0 0 256 256`}
-                        />
-          } alt="" />
-
-        </div>
       </div>
       
       }

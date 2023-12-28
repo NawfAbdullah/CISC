@@ -7,7 +7,10 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Url from '../components/utils/Url';
 import { useParams } from 'react-router-dom';
+
+
 const Event = ()=>{
+    const today = new Date()
     const [event,setEvent] = useState({competitions:[],workshops:[]})
     const {eventId} = useParams()
    
@@ -57,11 +60,11 @@ const Event = ()=>{
                     {event?.competitions.map((content,index)=>{
                         return <div className="list-item">
                             <h3 style={{
-                                textAlign:index%2===0?'left':'right'
+                                textAlign:window.innerWidth>550?(index%2===0?'left':'right'):'center'
                             }}>{content.title}</h3>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
-                                <p>{content.description}</p>
+                                <p dangerouslySetInnerHTML={{__html:content.description}}></p>
                             </div>
                         </div>
                     })}
@@ -72,7 +75,7 @@ const Event = ()=>{
                 {event?.workshops.map((content,index)=>{
                         return <div className="list-item">
                             <h3 style={{
-                                textAlign:index%2===0?'left':'right'
+                                textAlign:window.innerWidth>550?(index%2===0?'left':'right'):'center'
                             }}>{content.title}</h3>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
@@ -82,7 +85,7 @@ const Event = ()=>{
                     })}
 
             </section>
-            {/* <Tickets name={'Nawf Abdullah'} event_name={"E-Summit"} pic="https://images.unsplash.com/photo-1697218694642-3dcb1841d85b?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"/> */}
+
         </div>
     </div>
 }

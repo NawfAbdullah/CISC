@@ -40,6 +40,10 @@
     overflow-x: hidden;
 }
 
+#root > div > div.main > div > div.event-content > section:nth-child(3) > div > p{
+    text-align: justify;
+}
+
 .line{
     margin: 20px 0;
     width: 50px;
@@ -103,6 +107,11 @@ h2+.event-contents>img{
     margin: 20px;
 }
 
+h2+.event-contents>p{
+    width: 45%;
+    font-size: 1.2rem;
+}
+
 .list-item h3{
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
@@ -139,6 +148,15 @@ h2+.event-contents>img{
     font-size: 1.5rem;
 }
 
+@media only screen and (max-width:740px){
+    
+h2+.event-contents>img{
+    width: 40%;
+    height: 90%;
+    aspect-ratio: 4/7;
+}
+}
+
 @media only screen and (max-width:650px) {
     .banner{
         width: 110vw;
@@ -158,6 +176,16 @@ h2+.event-contents>img{
         font-size: 4rem;
     }
 
+    .list-item h3{
+        font-size: 2.5rem;
+    }
+
+
+    .list-item .inner-list>p,#root > div > div.main > div > div.event-content > section:nth-child(3) > div > p{
+        text-align: justify;
+        width: 90%;
+    }
+
 
 }
 
@@ -175,6 +203,7 @@ h2+.event-contents>img{
     }
 
 }   
+
 
 
 @media only screen and (max-width:600px) {

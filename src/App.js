@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -6,6 +6,10 @@ import DevDetails from './components/Dev-Details';
 import { Route, Routes } from 'react-router-dom';
 import Event from './pages/Event';
 import Registration from './pages/Registration';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import WebIcon from '@mui/icons-material/Web';
 
 function App() {
   return (
@@ -17,6 +21,7 @@ function App() {
           <Route path='/event/:eventId' element={<Event />} />
           <Route path='/register/:eventId' element={<Registration />}/>
         </Routes>
+
         
       </div>
     </div>

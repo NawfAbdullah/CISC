@@ -7,13 +7,14 @@ import Members from '../components/Members';
 import EventCard from '../components/Cards/EventCard';
 import Contactus from '../assets/images/contact-us.svg'
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import FacebookIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import WebIcon from '@mui/icons-material/Web';
 import {motion} from 'framer-motion';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
-
+import CIIC from '../assets/images/ciic.jpg'
+import Crescent from '../assets/images/crescent.png'
 
 const Home = ()=>{
     gsap.registerPlugin(ScrollTrigger)
@@ -126,6 +127,15 @@ const Home = ()=>{
             </div>
             
         </section>
+        
+        <section className='colloboration'>
+          <h2>In coblaboration with</h2>
+          <div className="in">
+            <img src={CIIC} alt="" />
+            <img src={Crescent} alt="" />
+          </div>
+          
+        </section>
         <Members />
         <section className='events' id='events'>
           <h2>Events</h2>
@@ -160,8 +170,8 @@ const Home = ()=>{
           <p>Copyright &copy; {today.getFullYear()}</p>
           <div className="icons">
             <a href="https://www.instagram.com/cisc_buildclub/" className="icon" target='_blank'><InstagramIcon /> </a>
-            <a href="#" className="icon"><FacebookIcon /></a>
-            <a href="mailto:crescent.innovation.and.build.club@gmail.com" className="icon"><EmailIcon /></a>
+            <a href="mailto:ciscbuildclub@gmail.com" className="icon"><FacebookIcon /></a>
+            <a href="mailto:ciscbuildclub@gmail.com" className="icon"><EmailIcon /></a>
             <a href="/" className="icon"><WebIcon /></a>
           </div>
           <p>Made with ❤️ by <a href='https://in.linkedin.com/in/nawf-abdullah-69474a225' target='_blank'>Nawf Abdullah</a> and <a href='https://www.linkedin.com/in/ali-shazin-6157b5251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' target='_blank'>Ali izzath shazin</a></p>

@@ -70,6 +70,7 @@ const Registration = ()=>{
                     <RegisterInput placeholder="Department" name={'department'} value={participant['department']} type='text' icon={<MenuBookIcon/>} handleChange={handleChange}/>
                     <RegisterInput placeholder="Branch" name={'branch'} value={participant['branch']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
                     <RegisterInput placeholder="RRN(if crescentian)" name={'rrn'} value={participant['rrn']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
+                    <RegisterInput placeholder="Contact_no" name={'contact_no'} value={participant['contact_no']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
                     <p style={{color:'red'}}>{error}</p>
                     <Button handleClick={()=>{
                         if(id){
@@ -167,7 +168,7 @@ const Registration = ()=>{
                         participant.profile_pic = profile
                         setTotalParticpants(prevValue=>[...prevValue,{
                             ...participant,
-                            plan:0,
+                            plan:plan,
                             competition_ids:cop,
                             age:19,
                             photo:profile

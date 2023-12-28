@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Logo from '../assets/images/logo.png'
 import { Close } from '@mui/icons-material';
 import {motion,AnimatePresence} from 'framer-motion';
+import Clog from '../assets/images/clg.png'
 
 
 const Navbar = ()=>{
@@ -11,6 +12,7 @@ const Navbar = ()=>{
     return <div className="navbar">
         <div className="logo">
             <img src={Logo} alt="" />
+            <img src={Clog} alt="" />
         </div>
         {showMenus&&
         <AnimatePresence>
