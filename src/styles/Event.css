@@ -107,6 +107,10 @@ h2+.event-contents>img{
     margin: 20px;
 }
 
+p li{
+    text-align: left;
+}
+
 h2+.event-contents>p{
     width: 45%;
     font-size: 1.2rem;
