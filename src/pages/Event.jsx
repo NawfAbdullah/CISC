@@ -60,7 +60,7 @@ const Event = ()=>{
                     {event?.competitions.map((content,index)=>{
                         return <div className="list-item">
                             <h3 style={{
-                                textAlign:window.innerWidth>550?(index%2===0?'left':'right'):'center'
+                                textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title}</h3>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
@@ -75,11 +75,13 @@ const Event = ()=>{
                 {event?.workshops.map((content,index)=>{
                         return <div className="list-item">
                             <h3 style={{
-                                textAlign:window.innerWidth>550?(index%2===0?'left':'right'):'center'
+                                textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title}</h3>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
-                                <p>{content.description}</p>
+                                <p>
+                                    <span>Speaker : {content.speaker.name} <br/></span>
+                                    {content.description}</p>
                             </div>
                         </div>
                     })}

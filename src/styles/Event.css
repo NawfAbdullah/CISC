@@ -118,7 +118,7 @@ h2+.event-contents>p{
 
 .list-item h3{
     font-family: 'Inter', sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .list-item{
@@ -131,6 +131,7 @@ h2+.event-contents>p{
     align-items: center;
     justify-content: space-evenly;
     height: fit-content;
+    position: relative;
 }
 
 .list-item .inner-list.even{
@@ -143,13 +144,15 @@ h2+.event-contents>p{
 
 .list-item .inner-list  img{
     width: 40%;
-    aspect-ratio: 3/2;
+    aspect-ratio: 7/9;
     margin: 20px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .list-item .inner-list  img+p{
     font-size: 1.5rem;
+    text-align: justify;
 }
 
 @media only screen and (max-width:740px){
