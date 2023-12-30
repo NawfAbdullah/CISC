@@ -42,7 +42,7 @@ const Event = ()=>{
             <div className='line'></div>
             <div className="summary">
                 <p><span><LocationCity /></span> <span>BSA Crescent Institute of Science and Tech,Chennai</span></p>
-                <p><span><AccessTimeFilledRoundedIcon /></span><span>{date.getDay()},{months[date.getMonth()]} {date.getFullYear()}</span></p>
+                <p><span><AccessTimeFilledRoundedIcon /></span><span>{date.getDate()},{months[date.getMonth()]} {date.getFullYear()}</span></p>
                 {event.isRegistrationOpen&&<div className="floating">
                     <RegisterButton eventId={eventId}></RegisterButton>
                 </div>}

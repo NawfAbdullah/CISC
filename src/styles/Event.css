@@ -205,8 +205,13 @@ h2+.event-contents>img{
         flex-direction: column;
     }
 
-    .event-contents img{
-        width: 100%;
+    h2+.event-contents>img{
+        min-width: 90vw;
+        aspect-ratio: 3/2;
+    }
+
+    .list-item .inner-list  img{
+        aspect-ratio: 3/2;
     }
 
 }   
