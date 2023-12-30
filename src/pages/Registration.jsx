@@ -84,7 +84,7 @@ const Registration = ()=>{
                     }}>Next</Button>
                 </div>}
         {cardNumber===1&& <div className="plan">
-                    <PricingCard title={'Basic'} price={event.fees[0]/100} type={"basic"} features={event.workshops.map(workshop=>workshop.plan==0&&workshop.title)} handleClick={()=>{
+                    <PricingCard title={'Basic'} price={event.fees[0]/100} type={"basic"} features={event.workshops.map(workshop=>workshop.plan===0&&workshop.title)} handleClick={()=>{
                         setPlan(0);
                         setCardNumber(prevValue=>prevValue+1);
                         setParticipant(prevValue=>({...prevValue,price:event.fees[0]}));
@@ -95,7 +95,7 @@ const Registration = ()=>{
                         setParticipant(prevValue=>({...prevValue,price:0}));
                         setShowPaymentScreen(window.innerWidth>758)
                         }}/>
-                    <PricingCard title={'Premium'} price={event.fees[1]/100} type={"premium"} features={event.workshops.map(workshop=>workshop.title)} 
+                    <PricingCard title={'Premium'} price={event.fees[1]/100} type={"premium"} features={event.workshops.map(workshop=>workshop.plan===1&&workshop.title)} 
                         handleClick={()=>{
                             setPlan(1);
                             setCardNumber(prevValue=>prevValue+1);
@@ -118,7 +118,6 @@ const Registration = ()=>{
                     return (
                         <div className="check-container">
                             <input type="checkbox" placeholder={content.title} value={content._id} checked={(id&&participant.competition_ids)?participant.competition_ids.includes(content._id):checkArray[index]} onChange={(e)=>{                                
-                                console.log('x');
                                 if(e.target.checked){
                                     setComp(prevValue=>[...prevValue,e.target.value])
                                     console.log('y');
@@ -131,7 +130,7 @@ const Registration = ()=>{
                                     })
                                     
                                 }else{
-                                    console.log('z');
+                                    
                                     console.log(participant.price);
                                     setComp(prevValue=>prevValue.filter(compe=>compe!=content.id))
                                     setParticipant(prevValue=>{

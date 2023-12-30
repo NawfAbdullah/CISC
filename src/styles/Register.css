@@ -22,13 +22,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transform: scale(0.8);
+    position: relative;
+    right: 10%;
+}
+
+@media only screen and (max-width:1120px){
+    .plan{
+        position: relative;
+        right: 15%;
+    }
 }
 
 @media only screen and (max-width:1000px){
     .plan{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100%;
+        transform: translate(-50%,-50%);
+        flex-direction: column;
         position: relative;
         right: 5%;
-        transform: scale(0.8);
+        overflow-y: scroll;
     }
     
 }
@@ -55,5 +71,7 @@
         justify-content: flex-start;
         overflow-y: scroll;
         overflow-x: hidden;
+        top: 0;
+        left: 0;
     }
 }

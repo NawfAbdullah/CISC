@@ -5,8 +5,10 @@
     color: #030216;
     padding: 20px;
     margin: 5px;
-
-    width: 200px;
+    width: 300px;
+    flex-wrap: wrap;
+    min-height: fit-content;
+    height: 100%;
 }
 
 .pricing-card>hr{
@@ -35,12 +37,15 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
+    height: 40%;
+    overflow-y: scroll;
 }
 
 .pricing-card>ul>li{
     font-family: 'Inter', sans-serif;
     color: grey;
     list-style: none;
+    text-align: left;
 }
 
 .premium{
