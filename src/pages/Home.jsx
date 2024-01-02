@@ -136,6 +136,13 @@ const Home = ()=>{
           </div>
           
         </section>
+        <section id='faculty'>
+          <img src="https://crescent.education/wp-content/uploads/2017/10/S.SADHISHPRABHU.jpg" alt="" />
+          <div className="left">
+            <h3>Sadish Prabu</h3>
+            <p>Faculty Coordinator</p>
+          </div>
+        </section>
         <Members />
         <section className='events' id='events'>
           <h2>Events</h2>

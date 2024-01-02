@@ -13,7 +13,7 @@ import QRCode from "react-qr-code";
 import Logo from '../../assets/images/logo.png'
 
 
-export default function Pay({totalParticipants,event_id,setParticipant,setError,setScreen,setId,event,setDone,alreadyAdded,setAlreadyAdded}) {
+export default function Pay({totalParticipants,event_id,setParticipant,setError,setScreen,setId,event,setDone,alreadyAdded,setAlreadyAdded,setShowPaymentScreen}) {
   const [Razorpay] = useRazorpay();
   
   const [paid,setPaid] = useState(false)
@@ -51,6 +51,7 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
             setParticipant(totalParticipants[data.field.split('.')[1]])
             setId(data.field.split('.')[1])
             setScreen(0)
+            setShowPaymentScreen(false)
           }else{
             setAlreadyAdded(true)
             setOrderId(data.order_id)

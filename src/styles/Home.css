@@ -1,4 +1,4 @@
-
+/****************************************Hero******************************************************/
 
 
 h1.title{
@@ -67,6 +67,8 @@ h2{
 width: 100vw;
 }
 
+
+/************************************Laptop***************************************/
 .animate-lap{
     overflow: hidden;
     position: sticky;
@@ -76,6 +78,8 @@ width: 100vw;
     scale: 1.2;
     margin-bottom: 8rem;
 }
+
+/****************************************** About us *********************************************************/
 
 .about-us{
     min-height: 50vh;
@@ -97,12 +101,24 @@ width: 100vw;
     font-size: 1.5rem;
 }
 
+
+#faculty{
+    margin-top: 20px;
+}
+#faculty>img{
+    border-radius: 100%;
+}
+
+
+/********************************Cards*****************************************/
 .cards{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
 }
+
+/**********************************Contact us******************************************/
 
 .contact-us{
     position: relative;
@@ -151,7 +167,7 @@ width: 100vw;
     opacity: 0.5;
 }
 
-
+/***************************************** Footer ***************************************/
 footer{
     background-color: #000;
 }

@@ -9,6 +9,7 @@
     background-image: url('../assets/images/background.jpg');
     background-position: center;
     background-size: cover;
+    position: relative;
 }
 
 
@@ -21,10 +22,27 @@
 .plan{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     transform: scale(0.8);
     position: relative;
     right: 10%;
+}
+
+.competitionx{
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.competitionx .check-container{
+    background-color: rgb(248, 243, 236);
+    padding: 5px;
+    border-left: 5px solid salmon;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.competitionx .check-container p{
+    color: black;
 }
 
 @media only screen and (max-width:1120px){

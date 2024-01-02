@@ -59,19 +59,22 @@ const Registration = ()=>{
       <div className="register">
         <AnimatePresence>
            <FormCard styleClass={`card ${showPaymentScreen?'jad':''}`}>
-                {showPaymentScreen&&<Payment totalParticipants={totalParticipants} event_id={eventId} setParticipant={setParticipant} setError={setError} setScreen={setCardNumber} setId={setId} setDone={setDone} alreadyAdded={alreadyAdded} setAlreadyAdded={setAlreadyAdd}/>}
+                {showPaymentScreen&&<Payment totalParticipants={totalParticipants} event_id={eventId} setParticipant={setParticipant} setError={setError} setScreen={setCardNumber} setId={setId} setDone={setDone} alreadyAdded={alreadyAdded} setAlreadyAdded={setAlreadyAdd} setShowPaymentScreen={setShowPaymentScreen}/>}
         {(window.innerWidth>758||!showPaymentScreen)&&<>
         {cardNumber===0&&<div className="main-form">
                 <h1>Enter your details</h1>
-                    <AvatarPicker setFunction={setProfile}/>
-                    <RegisterInput placeholder="Name" name={'name'} value={participant['name']} type='text' icon={<PersonIcon/>} handleChange={handleChange}/>
-                    <RegisterInput placeholder="Email" name={'email'} value={participant['email']} type='text' icon={<EmailIcon/>} handleChange={handleChange}/>
-                    <RegisterInput placeholder="college" name={'college'} value={participant['college']} type='text' icon={<SchoolIcon/>} handleChange={handleChange}/>
-                    <RegisterInput placeholder="Department" name={'department'} value={participant['department']} type='text' icon={<MenuBookIcon/>} handleChange={handleChange}/>
-                    <RegisterInput placeholder="Branch" name={'branch'} value={participant['branch']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
-                    <RegisterInput placeholder="RRN(if crescentian)" name={'rrn'} value={participant['rrn']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
-                    <RegisterInput placeholder="Contact_no" name={'contact_no'} value={participant['contact_no']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
-                    <p style={{color:'red'}}>{error}</p>
+                    <div className="main-form-inner">
+                        <AvatarPicker setFunction={setProfile}/>
+                        <p style={{color:'red'}}>{error}</p>
+                        <RegisterInput placeholder="Name" name={'name'} value={participant['name']} type='text' icon={<PersonIcon/>} handleChange={handleChange}/>
+                        <RegisterInput placeholder="Email" name={'email'} value={participant['email']} type='text' icon={<EmailIcon/>} handleChange={handleChange}/>
+                        <RegisterInput placeholder="college" name={'college'} value={participant['college']} type='text' icon={<SchoolIcon/>} handleChange={handleChange}/>
+                        <RegisterInput placeholder="Department" name={'department'} value={participant['department']} type='text' icon={<MenuBookIcon/>} handleChange={handleChange}/>
+                        <RegisterInput placeholder="Branch" name={'branch'} value={participant['branch']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
+                        <RegisterInput placeholder="RRN(if crescentian)" name={'rrn'} value={participant['rrn']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
+                        <RegisterInput placeholder="Contact_no" name={'contact_no'} value={participant['contact_no']} type='text' icon={<LaptopChromebookIcon/>} handleChange={handleChange}/>
+                    </div>
+                   
                     <Button handleClick={()=>{
                         if(id){
                             totalParticipants[id] = participant
@@ -105,7 +108,7 @@ const Registration = ()=>{
                 </div>
                 }
 
-            {cardNumber==2&&<div className="competition">
+            {cardNumber===2&&<div className="competition">
                 <PricingCard title={'Combat'} price={"Welcome to the challenge"} type={"arena"} features={event.competitions.map(workshop=>workshop.title)} handleClick={()=>{
                             setCardNumber(prevValue=>prevValue+1);
                             setParticipant(prevValue=>({...prevValue}));
@@ -113,14 +116,16 @@ const Registration = ()=>{
                             }}/>
                 
                 </div>}
-        {cardNumber===3&&<div className="competition">
+        {cardNumber===3&&<><div className="competitionx">
             {event.competitions.map((content,index)=>{
                     return (
                         <div className="check-container">
                             <input type="checkbox" placeholder={content.title} value={content._id} checked={(id&&participant.competition_ids)?participant.competition_ids.includes(content._id):checkArray[index]} onChange={(e)=>{                                
+                                console.log('yash');
+                                console.log(cop);
                                 if(e.target.checked){
                                     setComp(prevValue=>[...prevValue,e.target.value])
-                                    console.log('y');
+                                    console.log('yash');
                                     setParticipant(prevValue=>{
                                         prevValue.price+=content.fees
                                         return {
@@ -128,11 +133,12 @@ const Registration = ()=>{
                                             price:prevValue.price
                                         }
                                     })
-                                    
+                                    e.target.checked = true
                                 }else{
-                                    
-                                    console.log(participant.price);
-                                    setComp(prevValue=>prevValue.filter(compe=>compe!=content.id))
+                                    e.target.checked = false
+                                    console.log('zulfa');
+                                    console.log(cop);
+                                    setComp(prevValue=>prevValue.filter(compe=>compe!==content.id))
                                     setParticipant(prevValue=>{
                                         prevValue.price-=content.fees
                                         return {
@@ -144,19 +150,58 @@ const Registration = ()=>{
                                 }
                                 
                             }}/>
-                            <p>{content.title}-{content.fees!=0?'₹'+ String(content.fees/100):'Free'}</p>
+                            <p>{content.title}-{content.fees!==0?'₹'+ String(content.fees/100):'Free'}</p>
                         </div>
                     )
                 })
+                
             }
-            <Button 
+            {event.workshops.map((content,index)=>{
+                if(content.plan!==plan){
+                    return (
+                        <div className="check-container">
+                        <input type="checkbox" placeholder={content.title} value={content._id} checked={(id&&participant.competition_ids)?participant.competition_ids.includes(content._id):checkArray[index]} onChange={(e)=>{                                
+                            if(e.target.checked){
+                                setComp(prevValue=>[...prevValue,e.target.value])
+                                console.log('y');
+                                setParticipant(prevValue=>{
+                                    prevValue.price+=content.fees
+                                    return {
+                                        ...prevValue,
+                                        price:prevValue.price
+                                    }
+                                })
+                                
+                            }else{
+                                
+                                console.log(participant.price);
+                                setComp(prevValue=>prevValue.filter(compe=>compe!==content.id))
+                                setParticipant(prevValue=>{
+                                    prevValue.price-=content.fees
+                                    return {
+                                        ...prevValue,
+                                        price:prevValue.price
+                                    }
+                                })
+                                
+                            }
+                            
+                        }}/>
+                        <p>{content.title}-{content.fees!==0?'₹'+ String(content.fees/100):'Free'}</p>
+                    </div>
+                    )
+                }
+            })}
+
+                
+                </div>
+                <Button 
                 handleClick={()=>{
                     if(!id){
                         if(cop.length>0){
                             console.log('hit');
                             participant.competition_ids = cop
                         }else{
-                            console.log('shit');
                             try{
                                 delete participant.competition_ids;
                             }catch(err){
@@ -177,7 +222,6 @@ const Registration = ()=>{
                             console.log('hit');
                             participant.competition_ids = cop
                         }else{
-                            console.log('shit');
                             try{
                                 delete participant.competition_ids;
                             }catch(err){
@@ -194,7 +238,7 @@ const Registration = ()=>{
                 Submit
             </Button>
                 
-                </div>}
+                </>}
         {cardNumber===4&&!done&&<div>
                     {event.discount.map((offer)=>{
                         return <p>Adding {offer.count} participant will give you {offer.percent}% discount</p>

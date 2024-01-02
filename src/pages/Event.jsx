@@ -20,7 +20,7 @@ const Event = ()=>{
             const response = await axios.get(`${Url}event/one?id=${eventId}`)
             setEvent(response.data.data);
             setDate(new Date(response.data.data.date))
-            console.log(response.data.data);
+            console.log(response.data.data.sponsors);
         }
         getData()
     },[eventId])
@@ -38,7 +38,6 @@ const Event = ()=>{
             <h1>{event?.name}</h1>
         </div>
         <div className="event-content">
-
             <div className='line'></div>
             <div className="summary">
                 <p><span><LocationCity /></span> <span>BSA Crescent Institute of Science and Tech,Chennai</span></p>
@@ -54,16 +53,23 @@ const Event = ()=>{
                     <p>{event?.description}</p>
                 </div>
             </section>
+            <section id="sponsors">
+                {event?.sponsors?.map((sponsor,index)=><div key={index} className='sponsor'><img src={sponsor.logo}/><p>{sponsor.name}</p></div>)}
+            </section>
             <section>
                 <h2>Our events</h2>
                 <div className="events-list">
                     {event?.competitions.map((content,index)=>{
+                        
                         return <div className="list-item">
-                            <h3 style={{
+                            <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
-                            }}>{content.title}</h3>
+                            }}>{content.title}</h2>
+                            <p className='sub'>Price:₹ {Number(content.fees)/100}</p>
+                            <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
+                                
                                 <p dangerouslySetInnerHTML={{__html:content.description}}></p>
                             </div>
                         </div>
@@ -74,14 +80,18 @@ const Event = ()=>{
                 <h2>Workshops</h2>
                 {event?.workshops.map((content,index)=>{
                         return <div className="list-item">
-                            <h3 style={{
+                            <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
-                            }}>{content.title}</h3>
+                            }}>{content.title}</h2>
+                            <p className='sub'>Price:₹{Number(content.fees)/100}</p>
+                            <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
-                                <p>
-                                    <span>Speaker : {content.speaker.name} <br/></span>
-                                    {content.description}</p>
+                                <div className='xyz'>
+                                    <img src={content.speaker.photo} alt="" />
+                                    <p> {'Speaker : '+content.speaker.name} </p>
+                                    <p>{content.description}</p>
+                                </div>
                             </div>
                         </div>
                     })}
