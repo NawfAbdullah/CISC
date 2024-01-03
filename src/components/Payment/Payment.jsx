@@ -11,6 +11,7 @@ import Tickets from "./Tickets";
 import jsPDF from 'jspdf';
 import QRCode from "react-qr-code";
 import Logo from '../../assets/images/logo.png'
+import { Edit } from "@mui/icons-material";
 
 
 export default function Pay({totalParticipants,event_id,setParticipant,setError,setScreen,setId,event,setDone,alreadyAdded,setAlreadyAdded,setShowPaymentScreen}) {
@@ -87,12 +88,12 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
               }
             },
             prefill: {
-              name: "Piyush Garg",
-              email: "youremail@example.com",
-              contact: "9999999999",
+              name: "",
+              email: "",
+              contact: "",
             },
             notes: {
-              address: "Razorpay Corporate Office",
+              address: "Crescent Institute of Science and Technology",
             },
             theme: {
               color: "#0BD6A7",
@@ -129,7 +130,6 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
             setDone(true)
             setTimeout(()=>{
               genPDF()
-              console.log('pdf downloaded');
             },2000)
 
           }
@@ -174,6 +174,13 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
           <img src={ticketHolder.profile?ticketHolder.profile:Profile} alt=""/>
           <p className="name">{ticketHolder.name}</p>
           <p className="price">₹ {ticketHolder.price/100}</p>
+          <span onClick={()=>{
+            setError('edit')
+            setId(index)
+            setParticipant(totalParticipants[index])
+            setScreen(0)
+            setShowPaymentScreen(false)
+            }}><Edit /></span>
         </Paper>))}
       </div>
       

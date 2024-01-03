@@ -9,9 +9,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import PersonIcon from '@mui/icons-material/Person';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
-import Profile from '../assets/profile.jpg'
 import Button from "../components/Buttons/Button";
-import Tickets from "../components/Payment/Tickets";
 import FormCard from "../components/Cards/FormCard";
 import PricingCard from "../components/Cards/PricingCard";
 import AvatarPicker from "../components/Fields/AvatarPicker";
@@ -59,7 +57,7 @@ const Registration = ()=>{
       <div className="register">
         <AnimatePresence>
            <FormCard styleClass={`card ${showPaymentScreen?'jad':''}`}>
-                {showPaymentScreen&&<Payment totalParticipants={totalParticipants} event_id={eventId} setParticipant={setParticipant} setError={setError} setScreen={setCardNumber} setId={setId} setDone={setDone} alreadyAdded={alreadyAdded} setAlreadyAdded={setAlreadyAdd} setShowPaymentScreen={setShowPaymentScreen}/>}
+                {((window.innerWidth>758&&cardNumber!==1)||showPaymentScreen)&&<Payment totalParticipants={totalParticipants} event_id={eventId} setParticipant={setParticipant} setError={setError} setScreen={setCardNumber} setId={setId} setDone={setDone} alreadyAdded={alreadyAdded} setAlreadyAdded={setAlreadyAdd} setShowPaymentScreen={setShowPaymentScreen}/>}
         {(window.innerWidth>758||!showPaymentScreen)&&<>
         {cardNumber===0&&<div className="main-form">
                 <h1>Enter your details</h1>
@@ -117,28 +115,31 @@ const Registration = ()=>{
                 
                 </div>}
         {cardNumber===3&&<><div className="competitionx">
-            {event.competitions.map((content,index)=>{
+        {event.competitions.map((content,index)=>{
                     return (
-                        <div className="check-container">
-                            <input type="checkbox" placeholder={content.title} value={content._id} checked={(id&&participant.competition_ids)?participant.competition_ids.includes(content._id):checkArray[index]} onChange={(e)=>{                                
-                                console.log('yash');
-                                console.log(cop);
-                                if(e.target.checked){
-                                    setComp(prevValue=>[...prevValue,e.target.value])
-                                    console.log('yash');
+                        <div className="check-container" style={{
+                            borderColor:(cop.includes(content._id)||(id&&participant.competition_ids.includes(content._id)))?'#0BD6A7':'salmon'
+                        }} onClick={()=>{
+                            if(id){
+                                setComp([])
+                                if(participant.competition_ids.includes(content._id)){
                                     setParticipant(prevValue=>{
-                                        prevValue.price+=content.fees
-                                        return {
-                                            ...prevValue,
-                                            price:prevValue.price
-                                        }
+                                        prevValue.competition_ids = prevValue.competition_ids.filter(competition => competition!==content._id)
+                                        prevValue.price-=content.fees
+                                        return prevValue
                                     })
-                                    e.target.checked = true
                                 }else{
-                                    e.target.checked = false
-                                    console.log('zulfa');
-                                    console.log(cop);
-                                    setComp(prevValue=>prevValue.filter(compe=>compe!==content.id))
+                                    setParticipant(prevValue=>{
+                                        prevValue.competition_ids.push(content._id)
+                                        prevValue.price+=content.fees
+                                        return prevValue
+                                    })
+                                }
+                            }else{
+                                if(cop.includes(content._id)){
+                                    setComp(prevValue=>{
+                                        return prevValue.filter(co=>co!==content._id)
+                                    })
                                     setParticipant(prevValue=>{
                                         prevValue.price-=content.fees
                                         return {
@@ -146,10 +147,18 @@ const Registration = ()=>{
                                             price:prevValue.price
                                         }
                                     })
-                                    
+                                }else{
+                                    setComp(prevValue=>[...prevValue,content._id])
+                                    setParticipant(prevValue=>{
+                                        prevValue.price+=content.fees
+                                        return {
+                                            ...prevValue,
+                                            price:prevValue.price
+                                        }
+                                    })
                                 }
-                                
-                            }}/>
+                            }
+                        }}>
                             <p>{content.title}-{content.fees!==0?'₹'+ String(content.fees/100):'Free'}</p>
                         </div>
                     )
@@ -159,40 +168,53 @@ const Registration = ()=>{
             {event.workshops.map((content,index)=>{
                 if(content.plan!==plan){
                     return (
-                        <div className="check-container">
-                        <input type="checkbox" placeholder={content.title} value={content._id} checked={(id&&participant.competition_ids)?participant.competition_ids.includes(content._id):checkArray[index]} onChange={(e)=>{                                
-                            if(e.target.checked){
-                                setComp(prevValue=>[...prevValue,e.target.value])
-                                console.log('y');
-                                setParticipant(prevValue=>{
-                                    prevValue.price+=content.fees
-                                    return {
-                                        ...prevValue,
-                                        price:prevValue.price
-                                    }
-                                })
-                                
+                        <div className="check-container" key={index} style={{
+                            borderColor:(cop.includes(content._id)||(id&&participant.competition_ids.includes(content._id)))?'#0BD6A7':'salmon'
+                        }} onClick={()=>{
+                            if(id){
+                                setComp([])
+                                if(participant.competition_ids.includes(content._id)){
+                                    setParticipant(prevValue=>{
+                                        prevValue.competition_ids = prevValue.competition_ids.filter(competition => competition!==content._id)
+                                        prevValue.price-=content.fees
+                                        return prevValue
+                                    })
+                                }else{
+                                    setParticipant(prevValue=>{
+                                        prevValue.competition_ids.push(content._id)
+                                        prevValue.price+=content.fees
+                                        return prevValue
+                                    })
+                                }
                             }else{
-                                
-                                console.log(participant.price);
-                                setComp(prevValue=>prevValue.filter(compe=>compe!==content.id))
-                                setParticipant(prevValue=>{
-                                    prevValue.price-=content.fees
-                                    return {
-                                        ...prevValue,
-                                        price:prevValue.price
-                                    }
-                                })
-                                
+                                if(cop.includes(content._id)){
+                                    setComp(prevValue=>{
+                                        return prevValue.filter(co=>co!==content._id)
+                                    })
+                                    setParticipant(prevValue=>{
+                                        prevValue.price-=content.fees
+                                        return {
+                                            ...prevValue,
+                                            price:prevValue.price
+                                        }
+                                    })
+                                }else{
+                                    setComp(prevValue=>[...prevValue,content._id])
+                                    setParticipant(prevValue=>{
+                                        prevValue.price+=content.fees
+                                        return {
+                                            ...prevValue,
+                                            price:prevValue.price
+                                        }
+                                    })
+                                }
                             }
-                            
-                        }}/>
+                        }}>
                         <p>{content.title}-{content.fees!==0?'₹'+ String(content.fees/100):'Free'}</p>
                     </div>
                     )
                 }
             })}
-
                 
                 </div>
                 <Button 
@@ -218,17 +240,9 @@ const Registration = ()=>{
                             photo:profile
                         }])
                     }else{
-                        if(cop.length>0){
-                            console.log('hit');
-                            participant.competition_ids = cop
-                        }else{
-                            try{
-                                delete participant.competition_ids;
-                            }catch(err){
-                                console.log(err);
-                            }
-                        }
                         totalParticipants[id] = participant
+                        setError('')
+                        setId(null)
                     }
 
 
