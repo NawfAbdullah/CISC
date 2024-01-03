@@ -114,11 +114,12 @@ const Registration = ()=>{
                             }}/>
                 
                 </div>}
-        {cardNumber===3&&<><div className="competitionx">
+        {cardNumber===3&&<div className="yxy"><div className="competitionx">
         {event.competitions.map((content,index)=>{
                     return (
                         <div className="check-container" style={{
-                            borderColor:(cop.includes(content._id)||(id&&participant.competition_ids.includes(content._id)))?'#0BD6A7':'salmon'
+                            borderColor:(cop.includes(content._id)||(id&&participant.competition_ids.includes(content._id)))?'#0BD6A7':'salmon',
+                            backgroundColor:(cop.includes(content._id)||(id&&participant.competition_ids.includes(content._id)))?'#adf0e1':'rgb(248, 243, 236)',
                         }} onClick={()=>{
                             if(id){
                                 setComp([])
@@ -241,8 +242,6 @@ const Registration = ()=>{
                         }])
                     }else{
                         totalParticipants[id] = participant
-                        setError('')
-                        setId(null)
                     }
 
 
@@ -252,7 +251,7 @@ const Registration = ()=>{
                 Submit
             </Button>
                 
-                </>}
+                </div>}
         {cardNumber===4&&!done&&<div>
                     {event.discount.map((offer)=>{
                         return <p>Adding {offer.count} participant will give you {offer.percent}% discount</p>
@@ -263,7 +262,8 @@ const Registration = ()=>{
                             setComp([])
                             setParticipant({})
                             setCardNumber(0)
-                            
+                                                    setError('')
+                        setId(null)
                     }}>
                         Add Another
                     </Button>

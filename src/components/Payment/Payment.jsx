@@ -174,13 +174,14 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
           <img src={ticketHolder.profile?ticketHolder.profile:Profile} alt=""/>
           <p className="name">{ticketHolder.name}</p>
           <p className="price">₹ {ticketHolder.price/100}</p>
-          <span onClick={()=>{
+          <span  onClick={()=>{
             setError('edit')
             setId(index)
             setParticipant(totalParticipants[index])
             setScreen(0)
             setShowPaymentScreen(false)
-            }}><Edit /></span>
+            }}><Edit style={{fill:'#0BD6A7'}} /></span>
+            
         </Paper>))}
       </div>
       

@@ -50,6 +50,11 @@
     color: black;
 }
 
+.yxy{
+    height: 90%;
+    position: relative;
+}
+
 @media only screen and (max-width:1120px){
     .plan{
         position: relative;
