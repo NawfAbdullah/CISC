@@ -181,7 +181,7 @@ const Home = ()=>{
             <a href="mailto:ciscbuildclub@gmail.com" className="icon"><EmailIcon /></a>
             <a href="/" className="icon"><WebIcon /></a>
           </div>
-          <p>Made with ❤️ by <a href='https://in.linkedin.com/in/nawf-abdullah-69474a225' target='_blank'>Nawf Abdullah</a> and <a href='https://www.linkedin.com/in/ali-shazin-6157b5251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' target='_blank'>Ali izzath shazin</a></p>
+          <p>Developed by <a href='https://in.linkedin.com/in/nawf-abdullah-69474a225' target='_blank'>Nawf Abdullah</a> and <a href='https://www.linkedin.com/in/ali-shazin-6157b5251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' target='_blank'>Ali izzath shazin</a></p>
         </footer>
     </div>
 }
