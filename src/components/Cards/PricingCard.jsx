@@ -4,7 +4,7 @@ import Button from '../Buttons/Button';
 const PricingCard = ({type,title,price,features,handleClick}) => {
     return <div className={`pricing-card ${type}`}>
         <h2>{title}</h2>
-        <p className='pricing'>₹{price}</p>
+        <p className='pricing'>{price}</p>
         <hr />
         <h3>Features</h3>
         <ul>

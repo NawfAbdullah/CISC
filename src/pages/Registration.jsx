@@ -85,18 +85,18 @@ const Registration = ()=>{
                     }}>Next</Button>
                 </div>}
         {cardNumber===1&& <div className="plan">
-                    <PricingCard title={'Basic'} price={event.fees[0]/100} type={"basic"} features={event.workshops.map(workshop=>workshop.plan===0&&workshop.title)} handleClick={()=>{
+                    <PricingCard title={'Basic'} price={'₹'+ String(event.fees[0]/100)} type={"basic"} features={event.workshops.map(workshop=>workshop.plan===0&&workshop.title)} handleClick={()=>{
                         setPlan(0);
                         setCardNumber(prevValue=>prevValue+1);
                         setParticipant(prevValue=>({...prevValue,price:event.fees[0]}));
                         setShowPaymentScreen(window.innerWidth>758)}}/>
-                    <PricingCard title={'Combat'} price={"Welcome to the challenge"} type={"arena"} features={event.competitions.map(workshop=>workshop.title)} handleClick={()=>{
+                    <PricingCard title={'Individual'} price={"Set of competition"} type={"arena"} features={event.competitions.map(workshop=>workshop.title)} handleClick={()=>{
                         setPlan(2);
                         setCardNumber(prevValue=>prevValue+2);
                         setParticipant(prevValue=>({...prevValue,price:0}));
                         setShowPaymentScreen(window.innerWidth>758)
                         }}/>
-                    <PricingCard title={'Premium'} price={event.fees[1]/100} type={"premium"} features={event.workshops.map(workshop=>workshop.plan===1&&workshop.title)} 
+                    <PricingCard title={'Premium'} price={'₹'+ String(event.fees[1]/100)} type={"premium"} features={event.workshops.map(workshop=>workshop.plan===1&&workshop.title)} 
                         handleClick={()=>{
                             setPlan(1);
                             setCardNumber(prevValue=>prevValue+1);
@@ -107,7 +107,7 @@ const Registration = ()=>{
                 }
 
             {cardNumber===2&&<div className="competition">
-                <PricingCard title={'Combat'} price={"Welcome to the challenge"} type={"arena"} features={event.competitions.map(workshop=>workshop.title)} handleClick={()=>{
+                <PricingCard title={'Add ons'} price={"Events you can add beyond your package"} type={"arena"} features={event.competitions.map(workshop=>workshop.title)} handleClick={()=>{
                             setCardNumber(prevValue=>prevValue+1);
                             setParticipant(prevValue=>({...prevValue}));
                             setShowPaymentScreen(window.innerWidth>758)
@@ -256,8 +256,6 @@ const Registration = ()=>{
                     {event.discount.map((offer)=>{
                         return <p>Adding {offer.count} participant will give you {offer.percent}% discount</p>
                     })}
-                    
-                    
                     <Button handleClick={()=>{
                             setComp([])
                             setParticipant({})

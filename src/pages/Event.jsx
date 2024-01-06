@@ -66,7 +66,6 @@ const Event = ()=>{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
                             <p className='sub'>Price: ₹{Number(content.fees)/100}</p>
-                            <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
                                 

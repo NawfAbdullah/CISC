@@ -27,9 +27,7 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
   const reportTemplateRef = useRef(null);
 
 
-  const genPDF = ()=>{
 
-  }
   const handlePayment = useCallback(async () => {
 
 
@@ -80,11 +78,7 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
                 setTicketHolders(totalParticipants)
                 setPaid(true)
                 setDone(true)
-                setTimeout(()=>{
-                  genPDF()
-                  console.log('pdf downloaded');
-                },2000)
-
+                alert('Successfully registered')
               }
             },
             prefill: {
@@ -128,9 +122,7 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
             setTicketHolders(totalParticipants)
             setPaid(true)
             setDone(true)
-            setTimeout(()=>{
-              genPDF()
-            },2000)
+            alert('veified successfully')
 
           }
         },
