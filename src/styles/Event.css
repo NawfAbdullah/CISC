@@ -205,6 +205,11 @@ p.sub{
     text-align: justify;
 }
 
+
+#mai{
+    text-align: center;
+}
+
 @media only screen and (max-width:740px){
     
 h2+.event-contents>img{
@@ -215,6 +220,11 @@ h2+.event-contents>img{
 }
 
 @media only screen and (max-width:650px) {
+
+    .list-item h2{
+        text-align: center;
+        font-size: 2rem;
+    }
     .banner{
         width: 110vw;
     }
@@ -235,6 +245,7 @@ h2+.event-contents>img{
 
     .list-item h3{
         font-size: 2.5rem;
+        text-align: center;
     }
 
 
@@ -262,6 +273,10 @@ h2+.event-contents>img{
 
     .list-item .inner-list  img{
         aspect-ratio: 3/2;
+    }
+
+    .list-item .inner-list p{
+        font-size: 1rem;
     }
 
 }   

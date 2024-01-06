@@ -57,15 +57,15 @@ const Event = ()=>{
                 {event?.sponsors?.map((sponsor,index)=><div key={index} className='sponsor'><img src={sponsor.logo}/><p>{sponsor.name}</p></div>)}
             </section>
             <section>
-                <h2>Our events</h2>
+                <h2 id='mai'>Our events</h2>
                 <div className="events-list">
                     {event?.competitions.map((content,index)=>{
                         
                         return <div className="list-item">
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
-                            }}>{content.title}</h2>
-                            <p className='sub'>Price:₹ {Number(content.fees)/100}</p>
+                            }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
+                            <p className='sub'>Price: ₹{Number(content.fees)/100}</p>
                             <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
@@ -76,13 +76,13 @@ const Event = ()=>{
                     })}
                 </div>
             </section>
-            <section>
+            <section id='mai'>
                 <h2>Workshops</h2>
                 {event?.workshops.map((content,index)=>{
                         return <div className="list-item">
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
-                            }}>{content.title}</h2>
+                            }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
                             <p className='sub'>Price:₹{Number(content.fees)/100}</p>
                             <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>

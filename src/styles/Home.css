@@ -89,6 +89,7 @@ width: 100vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    text-align: justify;
 }
 
 .about-us .content .lap-space{ 
