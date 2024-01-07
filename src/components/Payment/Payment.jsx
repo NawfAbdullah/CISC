@@ -47,6 +47,8 @@ export default function Pay({totalParticipants,event_id,setParticipant,setError,
 
           if(data.err_msg){
             setError(data.err_msg)
+            console.log(totalParticipants);
+            console.log(data);
             setParticipant(totalParticipants[data.field.split('.')[1]])
             setId(data.field.split('.')[1])
             setScreen(0)

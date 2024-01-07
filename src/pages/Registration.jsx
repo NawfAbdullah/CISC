@@ -22,6 +22,7 @@ const Registration = ()=>{
     const [event,setEvent] = useState({competitions:[],workshops:[],discount:[],fees:[]})
     const [showPaymentScreen,setShowPaymentScreen] = useState(window.innerWidth>758)
     const [cop,setComp] = useState([])
+    const [work,setWork] = useState([])
     const [plan,setPlan] = useState(0)
     const [participant,setParticipant] = useState({
 
@@ -167,26 +168,27 @@ const Registration = ()=>{
                 if(content.plan!==plan){
                     return (
                         <div className="check-container" key={index} style={{
-                            borderColor:(cop.includes(content._id)||(id&&participant.competition_ids.includes(content._id)))?'#0BD6A7':'salmon'
+                            borderColor:(work.includes(content._id)||(id&&participant.workshop_ids.includes(content._id)))?'#0BD6A7':'salmon',
+                            backgroundColor:(work.includes(content._id)||(id&&participant.workshop_ids.includes(content._id)))?'#adf0e1':'rgb(248, 243, 236)',
                         }} onClick={()=>{
                             if(id){
-                                setComp([])
-                                if(participant.competition_ids.includes(content._id)){
+                                setWork([])
+                                if(participant.workshop_ids.includes(content._id)){
                                     setParticipant(prevValue=>{
-                                        prevValue.competition_ids = prevValue.competition_ids.filter(competition => competition!==content._id)
+                                        prevValue.workshop_ids = prevValue.workshop_ids.filter(competition => competition!==content._id)
                                         prevValue.price-=content.fees
                                         return prevValue
                                     })
                                 }else{
                                     setParticipant(prevValue=>{
-                                        prevValue.competition_ids.push(content._id)
+                                        prevValue.workshop_ids.push(content._id)
                                         prevValue.price+=content.fees
                                         return prevValue
                                     })
                                 }
                             }else{
                                 if(cop.includes(content._id)){
-                                    setComp(prevValue=>{
+                                    setWork(prevValue=>{
                                         return prevValue.filter(co=>co!==content._id)
                                     })
                                     setParticipant(prevValue=>{
@@ -197,7 +199,7 @@ const Registration = ()=>{
                                         }
                                     })
                                 }else{
-                                    setComp(prevValue=>[...prevValue,content._id])
+                                    setWork(prevValue=>[...prevValue,content._id])
                                     setParticipant(prevValue=>{
                                         prevValue.price+=content.fees
                                         return {
@@ -234,6 +236,7 @@ const Registration = ()=>{
                             ...participant,
                             plan:plan,
                             competition_ids:cop,
+                            workshop_ids:work,
                             age:19,
                             photo:profile
                         }])
