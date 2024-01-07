@@ -15,12 +15,35 @@ const Event = ()=>{
     const {eventId} = useParams()
    
     const [date,setDate] = useState(new Date())
+    const [workShopsArray,setWorkShopsArray] = useState({
+        Day1:[],
+        Day2:[]
+    })
     useEffect(()=>{
         const getData =async ()=>{
             const response = await axios.get(`${Url}event/one?id=${eventId}`)
             setEvent(response.data.data);
             setDate(new Date(response.data.data.date))
-            console.log(response.data.data.sponsors);
+            setWorkShopsArray({ Day1:[],
+                Day2:[]})
+            response.data.data.workshops.map((workshop,index)=>{
+                console.log(workshop);
+                if(workshop.day==0){
+                    setWorkShopsArray(prevValue=>{
+                        return {
+                            ...prevValue,
+                            Day1:[...prevValue.Day1,workshop]
+                        }
+                    })
+                }else{
+                    setWorkShopsArray(prevValue=>{
+                        return {
+                            ...prevValue,
+                            Day2:[...prevValue.Day2,workshop]
+                        }
+                    })
+                }
+            })
         }
         getData()
     },[eventId])
@@ -77,7 +100,27 @@ const Event = ()=>{
             </section>
             <section id='mai'>
                 <h2>Workshops</h2>
-                {event?.workshops.map((content,index)=>{
+                <h3 className='day'>Day 1</h3>
+                {workShopsArray.Day1.map((content,index)=>{
+                        return <div className="list-item">
+                            <h2 className='nawfAbdullah' style={{
+                                textAlign:window.innerWidth>550?'left':'center'
+                            }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
+                            <p className='sub'>Price:₹{Number(content.fees)/100}</p>
+                            <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
+                            <div className={`inner-list ${index%2===0?'even':'odd'}`}>
+                                <img src={content.img} alt="" />
+                                <div className='xyz'>
+                                    <img src={content.speaker.photo} alt="" />
+                                    <p> {'Speaker : '+content.speaker.name} </p>
+                                    <p>{content.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    })}
+
+                <h3 className='day'>Day 2</h3>
+                {workShopsArray.Day2.map((content,index)=>{
                         return <div className="list-item">
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'

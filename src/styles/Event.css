@@ -205,9 +205,21 @@ p.sub{
     text-align: justify;
 }
 
-
+h2.nawfAbdullah{
+    font-size: 2.3rem;
+}
 #mai{
     text-align: center;
+}
+
+h3.day{
+    font-size: 2.7rem;
+}
+
+@media only screen and (min-width:860px) {
+    h3.day{
+        font-size: 3.7rem;
+    }
 }
 
 @media only screen and (max-width:740px){

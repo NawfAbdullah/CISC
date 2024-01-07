@@ -45,13 +45,10 @@ const Registration = ()=>{
         const getData =async ()=>{
             const response = await axios.get(`${Url}event/one?id=${eventId}`)
             setEvent(response.data.data);
-            setCheckArray(()=>event.competitions.map(competion=>false))
-            console.log(response.data.data);
-        }
+        }   
         getData()
     },[eventId])
 
-    const [checkArray,setCheckArray] =  useState([])
 
     return (
       <div className="register">
