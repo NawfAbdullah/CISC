@@ -73,6 +73,10 @@
     border-radius: 10px;
   }
 
+
+  .nothifdggbdrfg{
+    border: #000;
+  }
   @media only screen and (max-width:758px){
     .Pay>h3{
         width: 90vw;
