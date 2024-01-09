@@ -77,6 +77,47 @@
   .nothifdggbdrfg{
     border: #000;
   }
+
+
+
+/************************************ MODAL *************************************/
+#parent-modal-title{
+    color: #000;
+    font-size: 1.3rem;
+}
+
+#parent-modal-description > p:nth-child(1),#parent-modal-description > p.sub,#panel1a-header > div.MuiAccordionSummary-content.MuiAccordionSummary-contentGutters.css-o4b71y-MuiAccordionSummary-content > h3{
+    color: rgb(180, 180, 180);
+}
+
+
+#panel1a-header > div.MuiAccordionSummary-content.MuiAccordionSummary-contentGutters.css-o4b71y-MuiAccordionSummary-content > h3{
+    margin: 10px 0;
+}
+
+body > div.MuiModal-root.css-79ws1d-MuiModal-root > div.MuiBox-root.css-176so8{
+    padding: 10px;
+    height: 90vh;
+    position: relative;
+}
+
+
+#parent-modal-description > div.sub{
+    height: 60%;
+    overflow-y: scroll;
+}
+
+#plan_d_alreadyPaid > li{
+    color: #000;
+    list-style: none;
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+}
+
+
+
+
+
   @media only screen and (max-width:758px){
     .Pay>h3{
         width: 90vw;
