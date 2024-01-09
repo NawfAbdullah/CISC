@@ -26,6 +26,11 @@
     text-align: center;
     font-family: 'Arvo', serif;
     font-size: 6rem;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#main-banner-grp{
     position: absolute;
     width: 100%;
 }
@@ -44,6 +49,10 @@
     text-align: justify;
 }
 
+
+.tagline-useless{
+    text-align: left;
+}
 .line{
     margin: 20px 0;
     width: 50px;

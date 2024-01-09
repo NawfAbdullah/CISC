@@ -58,7 +58,10 @@ const Event = ()=>{
         <div className="banner" style={{
             backgroundImage:`url(${event?.img})`
         }}>
-            <h1>{event?.name}</h1>
+            <div id="main-banner-grp">
+                <h1>{event?.name?.toUpperCase()}</h1>
+                <p>Ignite, Innovate, Inspire: Unleashing Student Entrepreneurs at the Summit of Success!</p>
+            </div>
         </div>
         <div className="event-content">
             <div className='line'></div>
@@ -83,11 +86,11 @@ const Event = ()=>{
                 <h2 id='mai'>Our events</h2>
                 <div className="events-list">
                     {event?.competitions.map((content,index)=>{
-                        
                         return <div className="list-item">
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
+                            <p className='tagline-useless'>{content.tagline}</p>
                             <p className='sub'>Price: ₹{Number(content.fees)/100}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
@@ -106,6 +109,7 @@ const Event = ()=>{
                             <h2 className='nawfAbdullah' style={{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
+                            <p className='tagline-useless'>{content.tagline}</p>
                             <p className='sub'>Price:₹{Number(content.fees)/100}</p>
                             <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
@@ -125,6 +129,7 @@ const Event = ()=>{
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
+                            <p className='tagline-useless'>{content.tagline}</p>
                             <p className='sub'>Price:₹{Number(content.fees)/100}</p>
                             <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
