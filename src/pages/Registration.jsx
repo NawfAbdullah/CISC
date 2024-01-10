@@ -88,11 +88,40 @@ const Registration = ()=>{
                         setCardNumber(prevValue=>prevValue+1);
                         setParticipant(prevValue=>({...prevValue,price:event.fees[0]}));
                         setShowPaymentScreen(window.innerWidth>758)}}/>
-                    <PricingCard title={'Individual'} price={"Set of competition"} type={"arena"} features={event.competitions.map(workshop=>workshop.title)} handleClick={()=>{
-                        setPlan(2);
-                        setCardNumber(prevValue=>prevValue+2);
-                        setParticipant(prevValue=>({...prevValue,price:0}));
-                        setShowPaymentScreen(window.innerWidth>758)
+                    <PricingCard title={'Working staffs and professors'} price={'₹'+ String(event.fees[2]/100)} type={"arena"} features={['All the workshops and competitions']} 
+                        handleClick={async ()=>{
+                            setPlan(2)
+                            console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',event.fees[2]);
+                            await setParticipant(prevValue=>({...prevValue,price:event.fees[2]}));
+                            setShowPaymentScreen(window.innerWidth>758)
+                            if(!id){
+                                if(cop.length>0){
+                                    console.log('hit');
+                                    participant.competition_ids = cop
+                                }else{
+                                    try{
+                                        delete participant.competition_ids;
+                                    }catch(err){
+                                        console.log(err);
+                                    }
+                                }
+                                participant.paymentStatus = false
+                                participant.profile_pic = profile
+                                setTotalParticpants(prevValue=>[...prevValue,{
+                                    ...participant,
+                                    plan:2,
+                                    price:event.fees[2],
+                                    competition_ids:cop,
+                                    workshop_ids:work,
+                                    age:19,
+                                    photo:profile
+                                }])
+                            }else{
+                                totalParticipants[id] = participant
+                            }
+        
+        
+                            setCardNumber(4)
                         }}/>
                     <PricingCard title={'Premium'} price={'₹'+ String(event.fees[1]/100)} type={"premium"} features={event.workshops.map(workshop=>workshop.plan===1&&workshop.title)} 
                         handleClick={()=>{
