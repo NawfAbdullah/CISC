@@ -10,6 +10,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import WebIcon from '@mui/icons-material/Web';
+import GFComp from './pages/GFComp';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/event/:eventId' element={<Event />} />
           <Route path='/register/:eventId' element={<Registration />}/>
+          <Route path='/registerfor/:eventId' element={<GFComp />}/>
         </Routes>
 
         
