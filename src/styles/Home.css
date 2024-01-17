@@ -162,6 +162,7 @@ width: 100vw;
     border-radius: 10px;
     color: #fff;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .contact-us form button:hover{

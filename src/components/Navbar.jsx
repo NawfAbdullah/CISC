@@ -9,7 +9,9 @@ import Clog from '../assets/images/clg.png'
 
 const Navbar = ()=>{
     const [showMenus,setShowMenu] = useState(window.innerWidth>720)
-    return <div className="navbar">
+    return <div className="navbar" style={{
+        backgroundColor:window.innerWidth>720?'rgba(40, 40, 43,0.6)':'transparent'
+    }}>
         <div className="logo">
             <img src={Logo} alt="" />
             <img src={Clog} alt="" />

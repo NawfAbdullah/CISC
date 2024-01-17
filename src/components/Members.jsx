@@ -26,7 +26,7 @@ const Members = ()=>{
     const [members,setMembers] = useState([{
         name:'Fateen khan',
         img:Fateen,
-        role:'president',
+        role:'President',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eos ratione odio, quam sint suscipit illum debitis optio aliquam ea asperiores modi dolorem nisi exercitationem delectus nemo similique! Illum, nihil?',
         size:30,
         x:30,

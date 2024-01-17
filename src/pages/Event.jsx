@@ -53,7 +53,7 @@ const Event = ()=>{
             behavior: 'smooth' ,
           });
     },[])
-    const months = ['January','Feburary','March','April','May','June', 'July','August','September','October','November','December']
+    const months = ['January','February','March','April','May','June', 'July','August','September','October','November','December']
     return <div className="event-page">
         <div className="banner" style={{
             backgroundImage:`url(${event?.img})`
@@ -67,7 +67,7 @@ const Event = ()=>{
             <div className='line'></div>
             <div className="summary">
                 <p><span><LocationCity /></span> <span>BSA Crescent Institute of Science and Tech,Chennai</span></p>
-                <p><span><AccessTimeFilledRoundedIcon /></span><span>{date.getDate()},{months[date.getMonth()]} {date.getFullYear()}</span></p>
+                <p><span><AccessTimeFilledRoundedIcon /></span><span>{date.getDate()},{months[date.getMonth()]} {date.getFullYear()} - 24,February 2024</span></p>
                 {event.isRegistrationOpen&&<div className="floating">
                     <RegisterButton eventId={eventId}></RegisterButton>
                 </div>}
@@ -85,47 +85,54 @@ const Event = ()=>{
             <section>
                 <h2 id='mai'>Our events</h2>
                 <div className="events-list">
+                    <hr />
                     {event?.competitions.map((content,index)=>{
-                        return <div className="list-item">
+                        return <><div className="list-item">
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
                             <p className='tagline-useless'>{content.tagline}</p>
-                            <p className='sub'>Price: ₹{Number(content.fees)/100}</p>
+                            <p className='sub'>Registration Fees: ₹{Number(content.fees)/100}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
                                 
                                 <p dangerouslySetInnerHTML={{__html:content.description}}></p>
                             </div>
                         </div>
+                        <hr />
+                        </>
                     })}
                 </div>
             </section>
             <section id='mai'>
                 <h2>Workshops</h2>
                 <h3 className='day'>Day 1</h3>
+                <hr></hr>
                 {workShopsArray.Day1.map((content,index)=>{
-                        return <div className="list-item">
+                        return <><div className="list-item">
                             <h2 className='nawfAbdullah' style={{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
                             <p className='tagline-useless'>{content.tagline}</p>
-                            <p className='sub'>Price:₹{Number(content.fees)/100}</p>
+                            <p className='sub'>Registration Fee:₹{Number(content.fees)/100}</p>
                             <p className='sub'>Package:{content.plan===0?'Basic':'Premium'}</p>
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
                                 <div className='xyz'>
-                                    <img src={content.speaker.photo} alt="" />
-                                    <p> {'Speaker : '+content.speaker.name} </p>
+                                    {/* <img src={content.speaker.photo} alt="" />
+                                    <p> {'Speaker : '+content.speaker.name} </p> */}
                                     <p>{content.description}</p>
                                 </div>
                             </div>
                         </div>
+                            <hr />
+                        </>
                     })}
 
                 <h3 className='day'>Day 2</h3>
+                <hr></hr>
                 {workShopsArray.Day2.map((content,index)=>{
-                        return <div className="list-item">
+                        return <><div className="list-item">
                             <h2 style={{
                                 textAlign:window.innerWidth>550?'left':'center'
                             }}>{content.title.charAt(0).toUpperCase() + content.title.slice(1)}</h2>
@@ -135,12 +142,14 @@ const Event = ()=>{
                             <div className={`inner-list ${index%2===0?'even':'odd'}`}>
                                 <img src={content.img} alt="" />
                                 <div className='xyz'>
-                                    <img src={content.speaker.photo} alt="" />
-                                    <p> {'Speaker : '+content.speaker.name} </p>
+                                    {/* <img src={content.speaker.photo} alt="" />
+                                    <p> {'Speaker : '+content.speaker.name} </p> */}
                                     <p>{content.description}</p>
                                 </div>
                             </div>
                         </div>
+                        <hr />
+                        </>
                     })}
 
             </section>

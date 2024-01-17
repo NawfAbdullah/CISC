@@ -129,7 +129,7 @@ const Home = ()=>{
         </section>
         
         <section className='colloboration'>
-          <h2>In coblaboration with</h2>
+          <h2>In collaboration with</h2>
           <div className="in">
             <img src={CIIC} alt="" />
             <img src={Crescent} alt="" />
@@ -139,7 +139,7 @@ const Home = ()=>{
         <section id='faculty'>
           <img src="https://crescent.education/wp-content/uploads/2017/10/S.SADHISHPRABHU.jpg" alt="" />
           <div className="left">
-            <h3>Sadish Prabu</h3>
+            <h3>S.Sadhish Prabhu</h3>
             <p>Faculty Coordinator</p>
           </div>
         </section>
@@ -177,7 +177,7 @@ const Home = ()=>{
           <p>Copyright &copy; {today.getFullYear()}</p>
           <div className="icons">
             <a href="https://www.instagram.com/cisc_buildclub/" className="icon" target='_blank'><InstagramIcon /> </a>
-            <a href="mailto:ciscbuildclub@gmail.com" className="icon"><FacebookIcon /></a>
+            <a href="https://in.linkedin.com/company/crescent-innovation-and-startup-club" className="icon"><FacebookIcon /></a>
             <a href="mailto:ciscbuildclub@gmail.com" className="icon"><EmailIcon /></a>
             <a href="/" className="icon"><WebIcon /></a>
           </div>
